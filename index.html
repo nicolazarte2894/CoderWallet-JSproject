@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODERWALLET - Login</title>
+    <link rel="stylesheet" href="./css/destino.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+</head>
+<body>
+    <main id="login-page">
+        <div class="diseño">
+            <h1>CODER<br><span>WALLET</span></h1>
+        </div>
+        <div class="login-register">
+            <h1>Bienvenido a CODERWALLET</h1>
+            <div class="container-register card-container">
+                <h2>Registrarse</h2>
+                <form action="" id="register-form">                   
+                    <input type="text" id="nombre" placeholder="Nombre">
+                    <input type="text" id="apellido" placeholder="Apellido">
+                    <input type="email" id="email" placeholder="Correo electrónico">
+                    <input type="text" id="usuario" placeholder="Usuario">
+                    <input type="password" id="password" placeholder="Contraseña">
+                    <div id="password-requirement">
+                        <h3>Requisitos de la contraseña:</h3>
+                        <p id="req-num"><i class="fa-solid fa-check"></i> Al menos un número</p>
+                        <p id="req-lower"><i class="fa-solid fa-check"></i> Incluir al menos una mayúscula</p>
+                        <p id="req-length"><i class="fa-solid fa-check"></i> Mínimo 8 caracteres</p>
+                    </div> 
+                    <button id="btn-register">Registrarse</button>
+                </form>
+            </div>            
+            <div class="container-login card-container">
+                <h2>Iniciar Sesión</h2>
+                <form action="" id="login-form">
+                    <input type="text" id="usuario-login" placeholder="Usuario o Correo electrónico" required>
+                    <input type="password" id="password-login" placeholder="Contraseña" required>
+                    <button id="btn-login">Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <!-- <script src="./js/pre-entrega1.js"></script> -->
+    <script src="js/login.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

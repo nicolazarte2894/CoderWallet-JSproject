@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODERWALLET - Inicio</title>
+    <link rel="stylesheet" href="../css/destino.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="body-areas">
+    <header>
+        <div class="header-title"><h1 class="page-title">Inicio</h1></div>
+        <div class="coderwallet"><h1>CODER <span>WALLET</span></h1></div>
+    </header>
+    <nav>
+        <div class="profile-container">
+            <img id="profile" src="https://www.seekpng.com/png/full/114-1149972_avatar-free-png-image-avatar-png.png" alt="profile-photo">
+            <h3>Hola <span id="profile-name">Nicolás</span>!</h3>
+            <p>Bienvenido a tu CoderWallet!</p>
+        </div>
+        <ul class="list-sidebar">
+            <li><a href="./inicio.html"><i class='bx bx-home-alt-2' ></i></i><span>Inicio</span></a></li>
+            <li><a href="./wallet.html"><i class='bx bx-wallet-alt' ></i><span>Wallet</span></a></li>
+            <li><a href="./actividad.html"><i class='bx bx-list-ul' ></i><span>Actividad</span></a></li>
+            <li><a href="./ayuda.html"><i class='bx bx-support' ></i></i><span>Soporte</span></a></li>
+        </ul>
+        <div id="log-out">
+            <a href="">
+                <i class='bx bx-log-out'></i>
+                <span>Log out</span>
+            </a>
+        </div>
+    </nav>
+    
+    <main id="cuerpo-inicio">
+        <section>
+            <div class="card-container" id="card-saldo-pesos">
+                <h3>Saldo en Pesos</h3><br>
+                <hr>
+                <p>$ <span id="saldo-pesos" step="0.01">0</span></p>
+                <hr>
+                <p>Puedes ingresar o transferir dinero desde CoderWallet</p>
+                <div class="transaccion">
+                    <div id="card-ingresar-dinero">
+                        <input type="number" placeholder="$">
+                        <button class="btn-style">Ingresar dinero</button>
+                    </div>
+                    <div id="card-transferir-dinero">
+                        <input type="number" placeholder="$" step="0.01">
+                        <input type="text" pattern="\d*" minlength = "22 "maxlength="22" placeholder="CVU o CBU dest">
+                        <button class="btn-style">Transferir dinero</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container" id="card-saldo-dolares">
+                <h3>Saldo en Dolares</h3><br>
+                <hr>
+                <p>USD <span id="saldo-dolares" step="0.01">0</span></p>
+                <hr>
+                <h4>Tipo de Cambio USD</h4>
+                <p>Compra $ <span id="tasa-compra-usd">200</span> por USD</p>
+                <p>Venta $ <span id="tasa-venta-usd">200</span> por USD</p>
+                <hr>
+                <p>Puedes comprar y vender dólares sin restricciones!</p>
+                <div >
+                    <div class="transaccion">
+                        <div id="card-comprar-usd">
+                            <input type="number" id= "input-compra-usd" placeholder="USD" step="0.01">
+                            <p>Equivalencia en $ <span id="cotizador-compra-usd" step="0.01">0</span></p>
+                            <button class="btn-style" id="btn-comprar-usd">Comprar</button>
+                        </div> 
+                        <div id="card-vender-usd">
+                            <input type="number" id= "input-venta-usd" placeholder="USD" step="0.01">
+                            <p>Equivalencia en $ <span id="cotizador-venta-usd" step="0.01">0</span></p>
+                            <button class="btn-style" id="btn-vender-usd">Vender</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="card-container">
+            <h3>Criptomonedas en CODERWALLET!</h3>
+            <hr>  
+        </div>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="../js/navbar.js"></script>
+    <script src="../js/inicio.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

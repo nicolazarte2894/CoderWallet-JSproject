@@ -1,0 +1,133 @@
+/***************
+-----LOGIN-----
+****************/
+@import "variables";
+
+#login-page{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    position: relative;
+    padding: 0;
+    .diseño{
+        background-image: url("../assets/fondo.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;  
+        h1{
+            font-size: 90px;
+            font-weight: 100;
+            font-family: 'Anton', sans-serif;
+            font-style: italic;
+            color: $blanco2;
+            span{
+                color: $yellow;
+            }
+        }
+    }
+    .login-register{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        .container-register, .container-login{
+            width: 70%;
+        }
+        form{
+            width: 100%;
+            padding: 1rem 1rem ;
+        }
+        input{
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            border-width: 1px;
+            border-color: $background-main;
+            margin: 1px auto;
+        }
+        button{
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            width: 50%;
+            margin-top: 0.5rem;
+            border-radius: 20px;
+            background-color: black;
+            color: $blanco1;
+            transition: 0.5s all ease-in-out;
+            border-color: black;
+            border-width: 1px;
+            line-height: 1.6rem;
+            &:hover{
+                cursor: pointer;
+                background-color: $yellow;
+                color: black;
+                font-size: 1.3rem;
+            }
+        }
+        #password-requirement{
+            text-align: left;
+            margin: 0 auto;
+            width: 80%;
+        }
+        #password-requirement p,i{
+            font-size: 0.9rem;
+            color: $background-nav-link;
+        }
+        
+        /*Validaciones*/
+        .validar-nulo{
+            border-color: red;
+            background-color: rgb(241, 182, 182);
+        }
+        .valido{
+            border-color: #E9ECEF;
+            background-color: #fff;
+        }
+        .valid i{
+            color: green;
+        }
+        .no-valid i{
+            color: red;
+        }
+        
+        /* Nuevos Divs */
+        .div-alert{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            width: 40%;
+            box-shadow: 2px 2px 2px #000;
+        }
+    }
+}
+
+
+
+// .diseño h1 , span{
+    
+// }
+// .diseño span{
+    
+// }
+
+// .login-design{
+//     background-color: #fff;
+// }
+
+
+
+// h2{
+//     font-size: 2rem;
+//     font-weight: 20px;
+//     font-family: 'Anton', sans-serif;
+//     font-style: italic;
+// }
+
+
+
+

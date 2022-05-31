@@ -1,0 +1,23 @@
+/***************
+-----GRILLAS-----
+****************/
+.body-areas{
+    display: grid;
+    grid-template-areas:
+    "sidebar cabeza"
+    "sidebar cuerpo"
+    ;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 5rem auto;
+    /*Nombre areas footer*/
+    nav{
+    grid-area: sidebar;
+    }
+    header{
+    grid-area: cabeza;
+    }
+    main{
+    grid-area: cuerpo;
+    }
+    
+}

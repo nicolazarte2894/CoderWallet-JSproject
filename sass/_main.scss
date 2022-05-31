@@ -1,0 +1,82 @@
+/***************
+-----CUERPO-----
+****************/
+@import "variables";
+
+main{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card-container{
+        background-color: $blanco2;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0px 0px 8px $shadow;
+        margin: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+    .btn-style{
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        width: auto;
+        margin-top: 0.5rem;
+        border-radius: 20px;
+        background-color: black;
+        color: $blanco1;
+        transition: 0.3s all ease-in-out;
+        border-color: black;
+        border-width: 1px;
+        &:hover{
+            cursor: pointer;
+            background-color: $yellow;
+            color: black;
+        }
+    }
+    input{
+        width: 80%;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        border-width: 0.5px;
+        border-color: $background-main;
+        margin: 1px auto;
+    }
+}
+        
+#cuerpo-inicio{
+    display: flex;
+    flex-direction: column;
+    
+    section{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        #card-saldo-pesos , #card-saldo-dolares{
+            width: 50%;
+            height: auto; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;  
+        }
+        #card-ingresar-dinero , #card-transferir-dinero{
+            width: 50%;
+        }
+        .transaccion{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 10px;
+            border: 0.5px solid $background-nav-link;
+            padding: 0.8rem;
+        }
+        #saldo-pesos , #saldo-dolares{
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: $saldo;
+            padding-bottom: 3rem;
+        }
+    }
+}

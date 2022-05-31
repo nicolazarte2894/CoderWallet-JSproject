@@ -1,0 +1,18 @@
+
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap');
+//ORIGEN DE SCSS
+/***************
+------BODY------
+****************/
+body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    background-color: $background-main;
+}
+@import "grid";
+@import "reset";
+@import "login";
+@import "navbar";
+@import "header";
+@import "main";
