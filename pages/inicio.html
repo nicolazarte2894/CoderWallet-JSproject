@@ -37,8 +37,9 @@
         <section>
             <div class="card-container" id="card-saldo-pesos">
                 <h3>Saldo en Pesos</h3><br>
-                <hr>
-                <p>$ <span id="saldo-pesos" step="0.01">0</span></p>
+                <div id="container-saldo"><p>
+                    $ <span id="saldo-pesos" step="0.01">0</span>
+                </p></div>
                 <hr>
                 <p>Puedes ingresar o transferir dinero desde CoderWallet</p>
                 <div class="transaccion">
@@ -55,8 +56,9 @@
             </div>
             <div class="card-container" id="card-saldo-dolares">
                 <h3>Saldo en Dolares</h3><br>
-                <hr>
-                <p>USD <span id="saldo-dolares" step="0.01">0</span></p>
+                <div id="container-saldo"><p>
+                    USD <span id="saldo-dolares" step="0.01">0</span>
+                </p></div>
                 <hr>
                 <h4>Tipo de Cambio USD</h4>
                 <p>Compra $ <span id="tasa-compra-usd">200</span> por USD</p>
@@ -79,14 +81,15 @@
                 </div>
             </div>
         </section>
-        <div class="card-container">
+        <div class="card-container cripto-list">
             <h3>Criptomonedas en CODERWALLET!</h3>
-            <hr>  
+            <p>Contamos con una lista de 10 Criptomonedas</p>
+            <hr>
         </div>
     </main>
 
     <!-- SCRIPTS -->
-    <script src="../js/navbar.js"></script>
+    <script src="../js/master.js"></script>
     <script src="../js/inicio.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

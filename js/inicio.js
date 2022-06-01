@@ -17,22 +17,24 @@
 //LOCALSTORAGE - Lista de Usuarios (array) y Mi perfil (objeto)
 let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 //DOM - Saldo Pesos
-let spanSaldoPesos = document.getElementById('saldo-pesos');
-let inputIngresar = document.getElementById('card-ingresar-dinero').querySelector('input');
-let btnIngresar = document.getElementById('card-ingresar-dinero').querySelector('button');
-let inputTransferir = document.getElementById('card-transferir-dinero').querySelectorAll('input')[0];
-let numeroCuenta = document.getElementById('card-transferir-dinero').querySelectorAll('input')[1];
-let btnTransferir = document.getElementById('card-transferir-dinero').querySelector('button');
+const spanSaldoPesos = document.getElementById('saldo-pesos');
+const inputIngresar = document.getElementById('card-ingresar-dinero').querySelector('input');
+const btnIngresar = document.getElementById('card-ingresar-dinero').querySelector('button');
+const inputTransferir = document.getElementById('card-transferir-dinero').querySelectorAll('input')[0];
+const numeroCuenta = document.getElementById('card-transferir-dinero').querySelectorAll('input')[1];
+const btnTransferir = document.getElementById('card-transferir-dinero').querySelector('button');
 //DOM - Saldo Dolares
-let spanSaldoUSD = document.getElementById('saldo-dolares');
-let tasaCompraUSD = document.getElementById('tasa-compra-usd');
-let tasaVentaUSD = document.getElementById('tasa-venta-usd');
-let cotizadorCompraUSD = document.getElementById('cotizador-compra-usd');
-let cotizadorVentaUSD = document.getElementById('cotizador-venta-usd');
-let inputCompraUSD = document.getElementById('input-compra-usd');
-let inputVentaUSD = document.getElementById('input-venta-usd');
-let btnComprarUSD = document.getElementById('btn-comprar-usd');
-let btnVenderUSD = document.getElementById('btn-vender-usd');
+const spanSaldoUSD = document.getElementById('saldo-dolares');
+const tasaCompraUSD = document.getElementById('tasa-compra-usd');
+const tasaVentaUSD = document.getElementById('tasa-venta-usd');
+const cotizadorCompraUSD = document.getElementById('cotizador-compra-usd');
+const cotizadorVentaUSD = document.getElementById('cotizador-venta-usd');
+const inputCompraUSD = document.getElementById('input-compra-usd');
+const inputVentaUSD = document.getElementById('input-venta-usd');
+const btnComprarUSD = document.getElementById('btn-comprar-usd');
+const btnVenderUSD = document.getElementById('btn-vender-usd');
+//Contenedor de lista de criptos
+const criptoList = document.querySelector('.cripto-list');
 
 
 //EVENTOS
@@ -40,10 +42,9 @@ let btnVenderUSD = document.getElementById('btn-vender-usd');
 document.addEventListener('DOMContentLoaded', ()=>{
     //miUsuario = JSON.parse(localStorage.getItem("miUsuario")) || {};
     fetchUSD();
+    fetchCripto();
     pintarSaldoPesos();
     pintarSaldoUSD();
-    
-    //fetchCripto();
 })
 //2-Click ingresar dinero
 btnIngresar.addEventListener('click', ()=>{
@@ -89,6 +90,36 @@ const fetchUSD = async () => {
         console.log(error)
     }
 }
+const fetchCripto = async () => {
+    try {
+        const res = await fetch('https://min-api.cryptocompare.com/data/top/mktcapfull?limit=15&tsym=USD');
+        const dataCripto = await res.json(); //Objeto
+        console.log(dataCripto);
+        pintarCriptoList(dataCripto);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//pintarCriptoList - pinta el listado de criptomonedas de la API (las 10 primeras)
+const pintarCriptoList = (dataCripto) => {
+    console.log(dataCripto.Data)
+    criptoContainer = document.createElement('div');
+    criptoList.querySelector('p').textContent = `Contamos con una lista de ${dataCripto.Data.length} Criptomonedas!`
+    dataCripto.Data.forEach(obj => {
+        let criptoCard = document.createElement('div');
+        criptoCard.classList.add('card-cripto-list');
+        let nodo = `<div class="cripto-img"><img src= "https://www.cryptocompare.com${obj.CoinInfo.ImageUrl}" alt= "${obj.CoinInfo.Name}"></div>
+                    <div class="cripto-name"><h3>${obj.CoinInfo.FullName}</h3></div>
+                    <div class="cripto-ticker"><p>${obj.CoinInfo.Name} / USD</p></div>
+                    <div class="cripto-price"><p>${obj.RAW.USD.PRICE}</p></div>
+                    `;
+        criptoCard.innerHTML = nodo;
+        criptoContainer.appendChild(criptoCard)            
+        console.log(obj.CoinInfo.FullName);
+    });
+    criptoList.appendChild(criptoContainer)
+};
 
 //pintarTasaUSD - Trae la cotizacion del dolar blue en Arg
 const pintarTasaUSD = (data) => {
