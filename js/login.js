@@ -1,4 +1,4 @@
-//ENTREGA - DOM
+
 //Login
 
 //Registro de usuario con constructor y pusheo en el array
@@ -168,8 +168,7 @@ iniciarSesion.onclick = (e) => {
             icon: "success",
         });
         setTimeout(()=>{
-            //location.href="../pages/inicio.html"
-            window.open('../../coderwallet-lazarte/pages/inicio.html','_self');
+            window.location.href="../coderwallet-lazarte/pages/inicio.html";
         }, 2000);
     } else {
         swal({

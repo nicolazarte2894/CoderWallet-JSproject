@@ -14,8 +14,6 @@
 */
 
 //VARIABLES
-//LOCALSTORAGE - Lista de Usuarios (array) y Mi perfil (objeto)
-let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 //DOM - Saldo Pesos
 const spanSaldoPesos = document.getElementById('saldo-pesos');
 const inputIngresar = document.getElementById('card-ingresar-dinero').querySelector('input');
@@ -84,7 +82,7 @@ const fetchUSD = async () => {
     try {
         const res = await fetch('https://cors-solucion.herokuapp.com/https://api-dolar-argentina.herokuapp.com/api/dolarblue');
         const data = await res.json();
-        console.log(data);
+        //console.log(data);
         pintarTasaUSD(data);
     } catch (error) {
         console.log(error)
@@ -94,7 +92,7 @@ const fetchCripto = async () => {
     try {
         const res = await fetch('https://min-api.cryptocompare.com/data/top/mktcapfull?limit=15&tsym=USD');
         const dataCripto = await res.json(); //Objeto
-        console.log(dataCripto);
+        //console.log(dataCripto);
         pintarCriptoList(dataCripto);
     } catch (error) {
         console.log(error)
@@ -103,7 +101,7 @@ const fetchCripto = async () => {
 
 //pintarCriptoList - pinta el listado de criptomonedas de la API (las 10 primeras)
 const pintarCriptoList = (dataCripto) => {
-    console.log(dataCripto.Data)
+    //console.log(dataCripto.Data)
     criptoContainer = document.createElement('div');
     criptoList.querySelector('p').textContent = `Contamos con una lista de ${dataCripto.Data.length} Criptomonedas!`
     dataCripto.Data.forEach(obj => {
@@ -116,7 +114,6 @@ const pintarCriptoList = (dataCripto) => {
                     `;
         criptoCard.innerHTML = nodo;
         criptoContainer.appendChild(criptoCard)            
-        console.log(obj.CoinInfo.FullName);
     });
     criptoList.appendChild(criptoContainer)
 };
@@ -137,10 +134,10 @@ const pintarSaldoUSD = () => {
 
 //ingresarPesos - aumenta el saldo de la cuenta en pesos
 const ingresarPesos = () => {
-    if(inputIngresar.value == ''){
+    if(inputIngresar.value == '' || inputIngresar.value < 0){
         swal({
             title: "Error!",
-            text: "Ingrese un valor",
+            text: "Ingrese un valor correcto",
             icon: "error",
         });
     }else{
@@ -252,7 +249,7 @@ const comprarUSD = () => {
 //venderUSD - disminuye el saldo de USD y aumenta saldo en pesos
 
 const venderUSD = () => {
-    if(inputVentaUSD.value == '' || inputVentaUSD.textContent > miUsuario.saldoUSD){
+    if(inputVentaUSD.value == '' || inputVentaUSD.value > miUsuario.saldoUSD){
         swal({
             title: "Error!",
             text: "Dato inválido",
