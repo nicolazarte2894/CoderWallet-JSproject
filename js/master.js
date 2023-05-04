@@ -33,8 +33,8 @@ const logOut = () =>{
             localStorage.removeItem('miUsuario');
             localStorage.setItem('usuarios',JSON.stringify(listaUsuarios));
             
-            window.location.href = "../../coderwallet-lazarte/index.html"
-            
+            window.location.href = "../index.html"
+            // window.location.href = "/JavaScript/coderwallet-lazarte/index.html"
         }else{
             swal({
                 title: "Error en el deslogueo!",

@@ -168,7 +168,7 @@ iniciarSesion.onclick = (e) => {
             icon: "success",
         });
         setTimeout(()=>{
-            window.location.href="../coderwallet-lazarte/pages/inicio.html";
+            window.location.href="../pages/inicio.html";
         }, 2000);
     } else {
         swal({
