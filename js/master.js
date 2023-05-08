@@ -5,13 +5,7 @@ let miUsuario = JSON.parse(localStorage.getItem("miUsuario")) || {};
 let miNombre = document.getElementById('profile-name');
 let btnLogout = document.getElementById('log-out').querySelector('a');
 
-//EVENTOS
-document.addEventListener('DOMContentLoaded', ()=>{
-    miNombre.textContent = miUsuario.nombre;
-})
-btnLogout.addEventListener('click', () =>{
-    logOut();
-})
+
 
 //FUNCIONES
 //logOut - se ejecuta con boton de logout para pushear miUsuario a lista de usuarios y llevar el index que es la página de registro y login
@@ -30,11 +24,16 @@ const logOut = () =>{
                 icon: "success",
             });
             //reseteo valores en storage
+            
             localStorage.removeItem('miUsuario');
             localStorage.setItem('usuarios',JSON.stringify(listaUsuarios));
-            
-            window.location.href = "../index.html"
-            // window.location.href = "/JavaScript/coderwallet-lazarte/index.html"
+            /* setTimeout(()=>{
+                window.location.href = "/JavaScript/coderwallet-lazarte/index.html";
+            }, 2000); */
+            /* setTimeout( () => {
+                location.href = "./index.html";
+                }, 2000); */
+            window.location.href = "/JavaScript/coderwallet-lazarte/index.html"
         }else{
             swal({
                 title: "Error en el deslogueo!",
@@ -44,3 +43,11 @@ const logOut = () =>{
     });
 
 }
+
+//EVENTOS
+document.addEventListener('DOMContentLoaded', ()=>{
+    miNombre.textContent = miUsuario.nombre;
+})
+btnLogout.addEventListener('click', () =>{
+    logOut();
+})
